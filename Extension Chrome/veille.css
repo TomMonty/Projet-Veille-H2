@@ -1,0 +1,182 @@
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centre verticalement */
+    align-items: center;
+    /* Centre horizontalement */
+    min-width: 250px;
+    /* Largeur minimale pour éviter une page trop étroite */
+    min-height: 350px;
+    /* Hauteur minimale */
+    padding: 8px;
+    /* Réduit le padding autour de la page */
+    background: linear-gradient(180deg, #FF00B7 0.1%, #BD06FF 78.57%);
+    /* Dégradé */
+}
+
+h1 {
+    align-self: stretch;
+    color: #333;
+    /* Texte en noir */
+    text-align: center;
+    font-family: "MADE Soulmaze";
+    font-size: 1.6rem;
+    /* Plus grand pour un meilleur impact */
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    margin: 10px 0;
+}
+
+#linkForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centre les éléments horizontalement */
+    gap: 15px;
+    /* Augmenter l'espacement entre les champs */
+    width: 100%;
+    max-width: 300px;
+    /* Largeur du formulaire ajustée */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Fond opaque blanc */
+    border-radius: 8px;
+    /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Ombre pour une meilleure lisibilité */
+}
+
+#linkInput,
+#descriptionInput,
+#newTitleInput,
+#titleSelect {
+    width: 100%;
+    /* Tous les champs auront la même largeur */
+    max-width: 220px;
+    padding: 10px;
+    /* Plus de padding pour les champs */
+    margin: 5px 0;
+    border-radius: 4px;
+    /* Coins arrondis */
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    /* Bordure noire plus visible */
+    background: transparent;
+    box-sizing: border-box;
+    color: #333;
+    /* Texte du champ en noir */
+    font-size: 1rem;
+}
+
+#linkInput {
+    height: 40px;
+    padding: 10px;
+}
+
+#descriptionInput {
+    height: 80px;
+    padding: 10px;
+}
+
+#newTitleInput {
+    height: 40px;
+    padding: 10px;
+}
+
+#titleSelection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    /* Espacement entre les éléments */
+    width: 100%;
+    max-width: 300px;
+}
+
+label[for="titleSelect"] {
+    color: #333;
+    /* Texte des labels en noir */
+    font-family: "MADE Soulmaze";
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    margin: 0;
+}
+
+#titleSelect {
+    flex-grow: 1;
+    max-width: 220px;
+    padding: 10px;
+    color: #333;
+    /* Texte de la sélection en noir */
+    font-size: 1rem;
+}
+
+button[type="submit"] {
+    display: flex;
+    transform: rotate(-2deg);
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background: #FFF;
+    color: #BD06FF;
+    /* Texte violet */
+    font-family: "MADE Soulmaze";
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 400;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #BD06FF;
+    color: #FFF;
+    transform: scale(1.05);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    max-width: 220px;
+    color: #333;
+    /* Texte en noir */
+    font-size: 1rem;
+}
+
+/* Cibler le texte du placeholder */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    /* Placeholder en gris foncé */
+}
+
+label[for="titleSelect"] {
+    color: #333;
+    /* Label en noir */
+    font-family: "MADE Soulmaze";
+    /* Police du label */
+    font-size: 1rem;
+    /* Augmenter la taille du texte */
+    font-weight: 500;
+    white-space: nowrap;
+    margin: 0;
+}

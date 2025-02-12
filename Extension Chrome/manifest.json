@@ -9,9 +9,6 @@
     },
     "content_scripts": [
         {
-            "matches": [
-                "https://*.instagram.com/*"
-            ],
             "css": [
                 "veille.css"
             ],
