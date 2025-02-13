@@ -9,6 +9,7 @@
     },
     "content_scripts": [
         {
+            "matches": [],
             "css": [
                 "veille.css"
             ],
