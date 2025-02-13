@@ -82,7 +82,7 @@ for (const file of eventFiles) {
 
 // Connexion du bot
 client.once(Events.ClientReady, (readyClient) => {
-    console.log(`La pute qui viens de se co : ${readyClient.user.tag}`);
+    console.log(`Le bot est bien connecté : ${readyClient.user.tag}`);
 });
 
 client.login(token);
