@@ -12,11 +12,12 @@ module.exports = {
             const link = await response.json();
 
             if (!link) {
-                return interaction.followUp({ content: "❌ No veille links found.", ephemeral: true });
+                return interaction.followUp({ content: "❌ No veille links found.", ephemeral: true });<
             }
 
             await interaction.followUp(`🔗 **${link.description}**: ${link.url}`);
         } catch (error) {
+
             console.error("❌ Error fetching random link:", error);
             await interaction.followUp({ content: "❌ Could not retrieve a random link.", ephemeral: true });
         }
