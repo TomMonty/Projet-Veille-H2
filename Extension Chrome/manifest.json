@@ -6,21 +6,5 @@
     "action": {
         "default_popup": "veille.html",
         "default_icon": "shrek.png"
-    },
-    "content_scripts": [
-        {
-            "matches": [],
-            "css": [
-                "veille.css"
-            ],
-            "js": [
-                "veille.js"
-            ],
-            "all_frames": false,
-            "match_origin_as_fallback": false,
-            "match_about_blank": false,
-            "run_at": "document_idle",
-            "world": "ISOLATED"
-        }
-    ]
+    }
 }
