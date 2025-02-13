@@ -12,7 +12,7 @@ module.exports = {
             const link = await response.json();
 
             if (!link) {
-                return interaction.followUp({ content: "❌ No veille links found.", ephemeral: true });<
+                return interaction.followUp({ content: "❌ No veille links found.", ephemeral: true });
             }
 
             await interaction.followUp(`🔗 **${link.description}**: ${link.url}`);
