@@ -23,7 +23,7 @@ module.exports = {
             const response = await fetch("http://localhost:3000/veille", {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ description, url }) // ✅ Now using description first, then URL
+                body: JSON.stringify({ description, url })
             });
 
             const result = await response.json();
