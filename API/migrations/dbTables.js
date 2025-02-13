@@ -1,6 +1,7 @@
 let mysql = require("mysql");
 const { dbConfig } = require("../config.json");
 
+// Create Tables in the botAPI Database
 async function dbTables() {
     let con = mysql.createConnection({
         host: dbConfig.host,

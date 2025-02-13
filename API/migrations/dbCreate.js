@@ -1,6 +1,8 @@
 let mysql = require("mysql");
 const { dbConfig } = require("../config.json");
 
+
+// Create Database
 async function dbCreate() {
     let con = mysql.createConnection({
         host: dbConfig.host,

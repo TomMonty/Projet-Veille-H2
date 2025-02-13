@@ -42,11 +42,11 @@ module.exports = {
             });
 
             const result = await response.json();
-            console.log("✅ Server Response:", result); // Debugging
+            console.log("✅ Server Response:", result);
 
             if (response.ok) {
                 await interaction.followUp({
-                    content: `✅ Link saved under **${title}**! You can retrieve it later with \`/veille\`.`,
+                    content: `✅ Link saved under **${title}**!.`,
                     ephemeral: true
                 });
             } else {

@@ -1,6 +1,8 @@
 let mysql = require("mysql");
 const { dbConfig } = require("../config.json");
 
+
+// Add information to the table links
 async function dbFixtures() {
     let con = mysql.createConnection({
         host: dbConfig.host,

@@ -81,4 +81,77 @@ router.get("/top", async function (req, res, next) {
     }
 });
 
+// Fetch a random veille link
+router.get("/random", async function (req, res, next) {
+    try {
+        const sql = "SELECT url, description FROM links ORDER BY RAND() LIMIT 1";
+        const [row] = await db.query(sql);
+
+        if (!row) {
+            return res.status(404).json({ message: "⚠️ No links found." });
+        }
+
+        res.json(row);
+    } catch (err) {
+        console.error("❌ Error fetching random link:", err);
+        res.status(500).json({ message: "Server error", error: err.message });
+    }
+});
+
+
+// Deletes selected links
+router.delete("/", async function (req, res, next) {
+    try {
+        console.log("DELETE Request Received:", req.body);
+
+        if (!req.body || !req.body.description || !req.body.url) {
+            console.log("❌ Missing required fields:", req.body);
+            return res.status(400).json({ message: "❌ Missing required fields." });
+        }
+
+        const { description, url } = req.body;
+
+        const checkSql = "SELECT * FROM links WHERE description = ? AND url = ?";
+        const link = await db.query(checkSql, [description, url]);
+
+        if (link.length === 0) {
+            console.log("⚠️ No matching link found.");
+            return res.status(404).json({ message: "⚠️ No matching link found." });
+        }
+
+        // Delete the link
+        const deleteSql = "DELETE FROM links WHERE description = ? AND url = ?";
+        const result = await db.query(deleteSql, [description, url]);
+
+        if (result.affectedRows > 0) {
+            console.log("✅ Link deleted successfully.");
+            return res.json({ message: "✅ Link deleted successfully!" });
+        } else {
+            console.log("❌ Deletion failed.");
+            return res.status(500).json({ message: "❌ Failed to delete the link." });
+        }
+    } catch (err) {
+        console.error("❌ Error deleting link:", err);
+        return res.status(500).json({ message: "❌ Server error.", error: err.message });
+    }
+});
+
+
+// Fetch all veille titles with their URLs and descriptions
+router.get("/all", async function (req, res, next) {
+    try {
+        const sql = "SELECT titres, url, description FROM links ORDER BY titres ASC";
+        const links = await db.query(sql);
+
+        if (!links.length) {
+            return res.status(404).json({ message: "⚠️ No veille links found." });
+        }
+
+        res.json(links);
+    } catch (err) {
+        console.error("❌ Error fetching all veille links:", err);
+        res.status(500).json({ message: "Server error", error: err.message });
+    }
+});
+
 module.exports = router;

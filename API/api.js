@@ -35,7 +35,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`This fucking app is listening on port http://localhost:${port}`);
+    console.log(`This app is listening on port http://localhost:${port}`);
 });
 
 let server = app.listen(8081, () => {

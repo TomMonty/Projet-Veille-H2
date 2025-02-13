@@ -58,6 +58,16 @@ Assurez-vous que `config.json`dans la partie du bot discord contienne les bonnes
 Démarrez l'API en local avec :
 ```bash
 cd api
+
+//Si première fois
+node dbCreate.js
+node dbTables.js
+node dbFixtures.js //Que si vous souhaitez mettre des informations pour tester.
+
+node api.js
+
+//Si vous avez déjà la db et les tables il suffit juste de faire
+
 node api.js
 ```
 
