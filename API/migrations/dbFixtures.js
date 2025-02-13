@@ -13,20 +13,25 @@ async function dbFixtures() {
         if (err) throw err;
         console.log("Connected to MySQL!");
 
-        const insertData = `
-            INSERT INTO links (titres, url, description) VALUES 
-            ('Développement Web', 'https://developer.mozilla.org', 'Ressources pour développeurs web'),
-            ('Veille Technologique', 'https://techcrunch.com', 'Actualités technologiques'),
-            ('Actualités Générales', 'https://www.bbc.com', 'Actualités internationales')
+        const insertLinksQuery = `
+            INSERT IGNORE INTO links (titres, url, description) VALUES 
+            ('Drones DJI', 'https://www.youtube.com/watch?v=SD2ZGlOwznY', 'Présentation de l''Avata 2'),
+            ('Drones DJI', 'https://www.youtube.com/watch?v=e3S_4SVbq1U', 'Cinematic FPV Avata 2'),
+            ('Drones DJI', 'https://www.youtube.com/watch?v=gHnJ-x4N2cQ', 'Tips débutants pour l''Avata 2'),
+            ('Blender', 'https://www.youtube.com/watch?v=gHBnw46GvGM', 'Toutes les fonctionnalitées sur Blender'),
+            ('Rollerblades', 'https://www.youtube.com/watch?v=rOmJT1kfl-o', 'Juanan Herrera Cool Stuff'),
+            ('LoL', 'https://www.youtube.com/watch?v=ej18WNtkn_k', 'Mel Changes')
         `;
 
-        con.query(insertData, (err, results) => {
+
+
+        con.query(insertLinksQuery, (err, results) => {
             if (err) throw err;
-            console.log("Links inserted or already exist.");
+            console.log("✅ Links inserted or already exist.");
         });
 
         con.end();
     });
 }
 
-module.exports = dbFixtures;
+dbFixtures();

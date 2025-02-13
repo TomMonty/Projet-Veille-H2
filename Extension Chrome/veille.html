@@ -4,25 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Veille Extension</title>
     <link rel="stylesheet" href="veille.css">
 </head>
 
 <body>
-    <h1>Ajouter un lien de veille</h1>
-    <form id="linkForm">
-            <input type="url" id="linkInput" placeholder="Lien de la page" required />
-            <textarea id="descriptionInput" placeholder="Description" required></textarea>
-
-            <div id="titleSelection">
+    <div class="container">
+        <h1>Ajouter un lien de veille</h1>
+        <form id="linkForm">
+            <div class="input-group">
+                <input type="url" id="linkInput" placeholder="Lien de la page" required />
+            </div>
+            <div class="input-group">
+                <textarea id="descriptionInput" placeholder="Description" required></textarea>
+            </div>
+            <div class="input-group" id="titleSelection">
                 <label for="titleSelect">Choisir un titre :</label>
                 <select id="titleSelect"></select>
             </div>
-
-            <input type="text" id="newTitleInput" placeholder="Ou entrez un nouveau titre" />
-
-        <button type="submit">Envoyer</button>
-    </form>
+            <div class="input-group">
+                <input type="text" id="newTitleInput" placeholder="Ou entrez un nouveau titre" />
+            </div>
+            <button type="submit" class="btn-submit">Envoyer</button>
+        </form>
+    </div>
 
     <script src="veille.js"></script>
 </body>

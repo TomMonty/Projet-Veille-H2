@@ -39,28 +39,46 @@ router.get("/", async function (req, res, next) {
     }
 });
 
-// Route pour ajouter un lien
-// Route pour ajouter un lien
+// Add a new link
 router.post("/", async function (req, res, next) {
     try {
-        console.log("📥 Received data:", req.body); // Debugging incoming data
-
-        const { url, description, titres } = req.body; // Extract fields
+        const { url, description, titres, userId, username } = req.body;
 
         if (!url || !titres) {
-            console.log("❌ Missing fields:", { url, titres }); // Log missing values
-            return res.status(400).json({ message: "Le lien et le titre sont obligatoires." });
+            return res.status(400).json({ message: "❌ Missing required fields." });
         }
 
+        // Save the link in the database
         const sql = "INSERT INTO links (titres, url, description) VALUES (?, ?, ?)";
-        const result = await db.query(sql, [titres, url, description]);
+        await db.query(sql, [titres, url, description]);
 
-        res.status(201).json({ message: "Lien ajouté avec succès", id: result.insertId });
+        // Only add points if userId & username exist (i.e., request comes from the bot)
+        if (userId && username) {
+            const sqlUser = `
+                INSERT INTO users (id, username, points) 
+                VALUES (?, ?, 1) 
+                ON DUPLICATE KEY UPDATE points = points + 1
+            `;
+            await db.query(sqlUser, [userId, username]);
+        }
+
+        res.status(201).json({ message: "✅ Link added successfully!" });
     } catch (err) {
-        console.error("Erreur lors de l'insertion :", err);
-        res.status(500).json({ message: "Erreur lors de l'ajout du lien", error: err.message });
+        console.error("❌ Error adding link:", err);
+        res.status(500).json({ message: "❌ Error adding link.", error: err.message });
     }
 });
 
+// Fetch top contributors
+router.get("/top", async function (req, res, next) {
+    try {
+        const sql = "SELECT username, points FROM users ORDER BY points DESC LIMIT 10";
+        const users = await db.query(sql);
+        res.json(users);
+    } catch (err) {
+        console.error("❌ Error fetching top users:", err);
+        res.status(500).json({ message: "Server error", error: err.message });
+    }
+});
 
 module.exports = router;

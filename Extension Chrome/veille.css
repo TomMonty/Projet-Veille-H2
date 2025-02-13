@@ -1,13 +1,19 @@
-/* FIGMA DEV : */
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* FIGMA DEV : */
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre verticalement */
-    align-items: center; /* Centre horizontalement */
-    min-width: 250px; /* Largeur minimale pour éviter une page trop étroite */
-    min-height: 350px; /* Hauteur minimale */
-    padding: 8px; /* Réduit le padding autour de la page */
+    justify-content: center;
+    align-items: center;
+    min-width: 250px;
+    min-height: 350px;
+    padding: 8px;
     background: linear-gradient(180deg, #FF00B7 0.1%, #BD06FF 78.57%);
 }
 
@@ -16,115 +22,91 @@ h1 {
     color: #FFF;
     text-align: center;
     font-family: "MADE Soulmaze";
-    font-size: 16px;
+    font-size: 1.6rem;
     font-style: italic;
     font-weight: 400;
     line-height: normal;
-    margin: 10px 0; /* Réduit l’espace au-dessus et en dessous du titre */
+    margin: 10px 0;
 }
 
 #linkForm {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre les éléments horizontalement */
-    gap: 3px; /* Espacement réduit entre les champs */
+    align-items: center;
+    gap: 10px;
     width: 100%;
-    max-width: 250px; /* Largeur maximale du formulaire */
+    max-width: 280px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #linkInput,
 #descriptionInput,
 #newTitleInput,
 #titleSelect {
-    width: 100%; /* Tous les encadrés auront la même largeur */
-    max-width: 220px; /* Largeur maximale des encadrés */
-    padding: 8px; /* Espacement interne uniforme */
-    margin: 3px 0; /* Espacement externe réduit entre les encadrés */
-    border-radius: 3px;
-    border: 2px solid rgba(255, 255, 255, 0.75); /* Bordure blanche avec opacité de 75% */
-    background: transparent; /* Enlève le fond blanc, on garde juste la bordure */
-    box-sizing: border-box; /* Empêche que le padding n'agrandisse l’élément */
-    color: rgba(255, 255, 255, 1); /* Texte de l'utilisateur en blanc à 100% d'opacité */
-}
-
-#linkInput {
-    height: 22px;
-    padding: 7px 10px; /* Ajustement du padding interne */
-}
-
-#descriptionInput {
-    height: 60px; /* Hauteur plus grande pour s'assurer que le texte est bien visible */
-    padding: 7px 10px;
-}
-
-#newTitleInput {
-    height: 22px;
-    padding: 7px 10px; /* Même padding que pour les autres champs */
+    width: 100%;
+    max-width: 220px;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    background: transparent;
+    box-sizing: border-box;
+    color: rgba(255, 255, 255, 1);
+    font-size: 1rem;
 }
 
 #titleSelection {
-    display: flex; /* Force l'alignement horizontal */
-    flex-direction: row; /* (par défaut, flex-direction est row, mais on le redéfinit pour être sûr) */
-    align-items: center; /* Aligne verticalement au centre */
-    gap: 6px; /* Espacement entre les éléments */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
 }
 
 label[for="titleSelect"] {
-    color: rgba(255, 255, 255, 0.75); /* Texte des labels en blanc avec 75% d'opacité */
-    font-family: Inter;
-    font-size: 11px;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: "MADE Soulmaze";
+    font-size: 12px;
     font-weight: 500;
-    white-space: nowrap; /* Évite que le texte passe à la ligne */
-    margin: 0; /* Enlève toute marge par défaut */
-}
-
-#titleSelect {
-    flex-grow: 1; /* Permet au champ de sélection de prendre l'espace restant */
-    max-width: 220px; /* Largeur maximale du select pour qu'il corresponde aux autres encadrés */
-    padding: 7px 10px;
-    color: rgba(255, 255, 255, 1); /* Texte du select en blanc à 100% d'opacité */
+    white-space: nowrap;
+    margin: 0;
 }
 
 button[type="submit"] {
     display: flex;
     transform: rotate(-2deg);
-    padding: 9px 12px;
+    padding: 12px 20px;
     justify-content: center;
     align-items: center;
-    border-radius: 2px;
+    border-radius: 4px;
     background: #FFF;
-    color: #BD06FF; /* Couleur du texte */
+    color: #BD06FF;
     font-family: "MADE Soulmaze";
-    font-size: 20px;
+    font-size: 1.1rem;
     font-style: italic;
     font-weight: 400;
-    line-height: normal;
-    border: none; /* Pour éviter un contour noir */
-    margin-top: 20px; /* Ajoute un espace entre le formulaire et le bouton */
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
 }
 
-input,
-textarea,
-select {
-    width: 100%;
-    max-width: 220px; /* Ajuste la largeur des champs */
-    color: rgba(255, 255, 255, 1); /* Applique la couleur du texte blanc à 100% d'opacité sur tous les champs */
+button[type="submit"]:hover {
+    background-color: #BD06FF;
+    color: #FFF;
+    transform: scale(1.05);
 }
 
-/* Cibler le texte du placeholder avec 75% d'opacité */
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
 input::placeholder,
 textarea::placeholder,
 select::placeholder {
-    color: rgba(255, 255, 255, 0.75); /* Texte placeholder en blanc avec 75% d'opacité */
-}
-
-label[for="titleSelect"] {
-    color: rgba(255, 255, 255, 100); /* Texte des labels en blanc avec 75% d'opacité */
-    font-family: "MADE Soulmaze"; /* Applique la police MADE Soulmaze */
-    font-size: 12px; /* Augmente la taille du texte */
-    font-weight: 500;
-    white-space: nowrap; /* Évite que le texte passe à la ligne */
-    margin: 0; /* Enlève toute marge par défaut */
+    color: rgba(255, 255, 255, 0.75);
 }

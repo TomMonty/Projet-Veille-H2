@@ -20,4 +20,4 @@ async function dbCreate() {
     });
 }
 
-module.exports = dbCreate;
+dbCreate();
